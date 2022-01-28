@@ -1,0 +1,74 @@
+#footer-subscribe {
+    color: #00104b;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 15px 0 0;
+    text-transform: uppercase;
+}
+#footer-subscribe form{
+	display: flex;
+	margin: 10px 0 0;
+	border: 1px solid #7f8aa8;
+	border-radius: 2px;
+}
+#footer-subscribe input[type="email"] {
+    display: block;
+    width: calc(100% - 33px);
+    padding: 0 10px;
+    background: #fff;
+    border: none;
+    line-height: 29px;
+    height: 29px;
+    font-size: 12px;
+}
+#footer-subscribe form:hover{
+	border-color: #e01d7b;
+}
+
+#footer-subscribe input[type="submit"] {
+    display: block;
+    background: url("images/check-icon.png") no-repeat center center, #e01d7b;
+    border: none;
+    width: 33px;
+    height: 29px;
+    line-height: 29px;
+    color: transparent;
+    overflow: hidden;
+    cursor: pointer;
+}
+@media screen and (max-width:1230px) {
+    #footer #footer-subscribe input[type="email"] {
+        font-size: 12px;
+    }
+}
+@media screen and (max-width:1023px) {
+    #footer #footer-subscribe {
+        font-size: 12px;
+    }
+    #footer #footer-subscribe input[type="email"] {
+
+    }
+    #footer #footer-subscribe input[type="submit"] {
+    }
+}
+@media screen and (max-width:480px) {
+    #footer .footer-subscribe-block{
+        width: 100%;
+    }
+    #footer #footer-subscribe{
+        font-size: 18px;
+    }
+    #footer #footer-subscribe input[type="email"] {
+    font-size: 16px;
+    }
+    #footer-subscribe input[type="email"] {
+    line-height: 40px;
+    height: 40px;
+    font-size: 16px;
+    }
+    #footer-subscribe input[type="submit"] {
+    width: 50px;
+    height: 40px;
+    line-height: 29px;
+    }
+}

@@ -1,0 +1,81 @@
+<?php
+
+$matrix = array( array(1,2,3,4,5),
+                 array(5,4,3,2,1),
+                 array(0,2,4,6,8),
+                 array(1,3,5,7,9),            
+                );
+$inputs = array();
+
+
+
+$rowCount = count($matrix);
+
+
+
+$rowNumber = 0;
+while ($rowNumber < $rowCount)
+{
+    $row = $matrix[$rowNumber];
+    $columnCount = count($row);
+
+    $columnNumber = 0;
+    while ($columnNumber < $columnCount)
+    {
+        $element = $row[$columnNumber];
+
+        //check start
+        $isRepeat = false;
+
+        $checkRowNumber = $rowNumber;
+        while ($checkRowNumber < $rowCount)
+        {
+            $checkRow = $matrix[$checkRowNumber];
+
+            $checkColumnCount = count($checkRow);
+
+            $checkColumnNUmber = $columnNumber;
+            while ($checkColumnNUmber < $checkColumnCount)
+            {
+                $checkElement = $checkRow[$checkColumnNUmber];
+
+                if ($rowNumber == $checkRowNumber && $columnNumber == $checkColumnNUmber)
+                {
+                    // same element
+                }
+                else
+                {                    
+                    if ($element == $checkElement)
+                    {
+                        $isRepeat = true;
+                    }
+                }
+
+                $checkColumnNUmber = $checkColumnNUmber + 1;
+            }
+
+            $checkRowNumber = $checkRowNumber + 1;
+        }
+
+        //check end
+
+        if ($isRepeat)
+        {
+            $inputs[] = $element;
+        }
+
+
+        $columnNumber = $columnNumber + 1;
+    }
+    
+
+    $rowNumber = $rowNumber + 1;
+}
+
+
+echo "<pre>";
+print_r($inputs);
+echo "</pre>";
+echo "<hr>";
+
+   

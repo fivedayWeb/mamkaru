@@ -1,0 +1,82 @@
+<?php
+
+class ConfigOptionsClass
+{
+    public static $NO_IMAGE = '/local/templates/mamka/images/no_photo.jpg';
+}
+
+
+
+class ImportFix
+{
+    const SCRIPT_NAME = "/bitrix/admin/1c_exchange.php";
+    const IBLOCK_ID = 467;
+
+    public static function init()
+    {
+        \Bitrix\Main\EventManager::getInstance()->addEventHandlerCompatible("iblock", "OnStartIBlockElementAdd", array(__CLASS__, "OnStartIBlockElementAdd"));
+        \Bitrix\Main\EventManager::getInstance()->addEventHandlerCompatible("iblock", "OnStartIBlockElementUpdate", array(__CLASS__, "OnStartIBlockElementUpdate"));
+    }
+
+    public static function OnStartIBlockElementAdd(&$arFields)
+    {
+        if ($_SERVER["SCRIPT_NAME"] == self::SCRIPT_NAME)
+        {
+            self::processElement($arFields);
+        }
+    }
+
+    public static function OnStartIBlockElementUpdate(&$arFields)
+    {
+        if ($_SERVER["SCRIPT_NAME"] == self::SCRIPT_NAME)
+        {
+            self::processElement($arFields);
+        }
+    }
+
+    public static function processElement(&$arFields)
+    {
+        if ($arFields["IBLOCK_ID"] != self::IBLOCK_ID) return;
+
+        $lName = strtolower($arFields["NAME"]);
+
+        if (
+            strpos($lName, "кровать") !== false
+            ||
+            strpos($lName, "кроватка") !== false   
+        )
+        {
+            $sectionIds = array();
+
+            // init section ids
+            if (isset($arFields["IBLOCK_SECTION_ID"]))
+            {
+                $sectionIds[] = $arFields["IBLOCK_SECTION_ID"];
+            } 
+            if (isset($arFields["IBLOCK_SECTION"]))
+            {
+                if (!is_array($arFields["IBLOCK_SECTION"]))
+                {
+                    $sectionIds[] = $arFields["IBLOCK_SECTION"];
+                }
+                else
+                {
+                    foreach ($arFields["IBLOCK_SECTION"] as $sectionId)
+                    {
+                        $sectionIds[] = $sectionId;
+                    }
+                }
+            }
+            $sectionIds[] = 23905;
+
+            // modify arFields
+            $sectionIds = array_unique($sectionIds);
+            if (isset($arFields["IBLOCK_SECTION_ID"]))
+            {
+                unset($arFields["IBLOCK_SECTION_ID"]);
+            }
+            $arFields["IBLOCK_SECTION"] = $sectionIds;
+        }
+    }
+}
+ImportFix::init();

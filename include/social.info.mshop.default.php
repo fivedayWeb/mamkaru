@@ -1,0 +1,31 @@
+<?$APPLICATION->IncludeComponent(
+	"aspro:social.info.mshop", 
+	".default", 
+	array(
+		"CACHE_TYPE" => "A",
+		"CACHE_TIME" => "86400",
+		"CACHE_GROUPS" => "N",
+		"COMPONENT_TEMPLATE" => ".default",
+		"VK" => "https://vk.com/detyrostovshop",
+		"ODN" => "https://ok.ru/profile/585401237287",
+		"FACE" => "",
+		"TWIT" => "",
+		"MAIL" => "",
+		"INST" => "https://www.instagram.com/dorc161/",
+		"TELEGRAM" => "https://t.me/Dorc161Bot",
+		"GOOGLEPLUS" => "",
+		"YOUTUBE" => "https://www.youtube.com/channel/UCZnWF9RjxZkdH1ONHeYdqbA",
+		"VIBER" => "",
+		"WHATSAPP" => "",
+		"SKYPE" => "",
+		"ORDER_SOC" => "tiktok,pinterest,yandexzen,snapchat,vk,odn,fb,tw,inst,mail,youtube,telegram,google_plus,viber,whatsapp,linkedin,skype",
+		"TIKTOK" => "https://vm.tiktok.com/3gwVKt/",
+		"PINTEREST" => "",
+		"YANDEXZEN" => "",
+		"SNAPCHAT" => "",
+		"LINKEDIN" => "",
+		"COMPOSITE_FRAME_MODE" => "A",
+		"COMPOSITE_FRAME_TYPE" => "AUTO"
+	),
+	false
+);?> 
