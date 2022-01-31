@@ -4,7 +4,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:sale.order.ajax", 
-	"v1", 
+	"new", 
 	array(
 		"PAY_FROM_ACCOUNT" => "N",
 		"ONLY_FULL_PAY_FROM_ACCOUNT" => "N",
@@ -15,14 +15,14 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"DELIVERY_NO_AJAX" => "Y",
 		"DELIVERY_NO_SESSION" => "N",
 		"TEMPLATE_LOCATION" => "popup",
-		"DELIVERY_TO_PAYSYSTEM" => "d2p",
+		"DELIVERY_TO_PAYSYSTEM" => "p2d",
 		"USE_PREPAYMENT" => "N",
 		"PROP_1" => "",
 		"PROP_3" => "",
 		"PROP_2" => "",
 		"PROP_4" => "",
 		"SHOW_STORES_IMAGES" => "Y",
-		"PATH_TO_BASKET" => SITE_DIR."basket/",
+		"PATH_TO_BASKET" => SITE_DIR."cart/",
 		"PATH_TO_PERSONAL" => SITE_DIR."personal/",
 		"PATH_TO_PAYMENT" => SITE_DIR."order/payment/",
 		"PATH_TO_AUTH" => SITE_DIR."auth/",
@@ -31,7 +31,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"DISABLE_BASKET_REDIRECT" => "N",
 		"DISPLAY_IMG_WIDTH" => "90",
 		"DISPLAY_IMG_HEIGHT" => "90",
-		"COMPONENT_TEMPLATE" => "v1",
+		"COMPONENT_TEMPLATE" => "new",
 		"ALLOW_NEW_PROFILE" => "N",
 		"SHOW_PAYMENT_SERVICES_NAMES" => "Y",
 		"ALLOW_APPEND_ORDER" => "Y",
@@ -64,10 +64,8 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"SHOW_COUPONS_BASKET" => "Y",
 		"SHOW_COUPONS_DELIVERY" => "Y",
 		"SHOW_COUPONS_PAY_SYSTEM" => "Y",
-		"PROPS_FADE_LIST_1" => array(
-		),
-		"PROPS_FADE_LIST_2" => array(
-		),
+		"PROPS_FADE_LIST_1" => "",
+		"PROPS_FADE_LIST_2" => "",
 		"USER_CONSENT" => "N",
 		"USER_CONSENT_ID" => "0",
 		"USER_CONSENT_IS_CHECKED" => "Y",
@@ -83,8 +81,7 @@ $APPLICATION->SetTitle("Оформление заказа");
 		"ADDITIONAL_PICT_PROP_623" => "-",
 		"BASKET_IMAGES_SCALING" => "adaptive",
 		"SERVICES_IMAGES_SCALING" => "adaptive",
-		"PRODUCT_COLUMNS_HIDDEN" => array(
-		),
+		"PRODUCT_COLUMNS_HIDDEN" => "",
 		"HIDE_ORDER_DESCRIPTION" => "N",
 		"USE_YM_GOALS" => "N",
 		"USE_ENHANCED_ECOMMERCE" => "N",
