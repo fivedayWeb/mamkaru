@@ -1,6 +1,7 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Корзина");
+LocalRedirect('/cart/');
 ?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:sale.basket.basket", 
@@ -101,7 +102,7 @@ $APPLICATION->SetTitle("Корзина");
 		"LINE_ELEMENT_COUNT" => "5",
 		"TEMPLATE_THEME" => "blue",
 		"DETAIL_URL" => "",
-		"BASKET_URL" => SITE_DIR."basket/",
+		"BASKET_URL" => SITE_DIR."cart/",
 		"ACTION_VARIABLE" => "ACTION",
 		"PRODUCT_ID_VARIABLE" => "ID",
 		"PRODUCT_QUANTITY_VARIABLE" => $arParams["PRODUCT_QUANTITY_VARIABLE"],
