@@ -11,11 +11,18 @@ function getToCart(){
 	);
 	$basketItems = $basket->getBasketItems();
 	$items = $pids = [];
+	//print_r($basketItems);
 	foreach ($basketItems as $item)	{
 		$itemdata = [];
 		foreach ($item->getAvailableFields() as $fieldcode){
 			$itemdata[$fieldcode] = $item->getField($fieldcode);
 		}
+		$productInfoBySKUId = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
+		if (is_array($productInfoBySKUId)){
+			//echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
+			$itemdata['PRODUCT_ID'] = $productInfoBySKUId['ID'];
+		}
+		//print_r($itemdata);
 		$itemdata['discprice'] = $item->getDiscountPrice();
 		$pids[$itemdata['PRODUCT_ID']] = 1;
 		foreach ($item->getPropertyCollection() as $property) {
@@ -28,14 +35,29 @@ function getToCart(){
 			];
 		}
 		$items[$itemdata['PRODUCT_ID']] = $itemdata;
+		//print_r($itemdata['PRODUCT_ID']);
+
+		/*$mxResult2 = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
+		if (is_array($mxResult2)){
+			echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
+		}else{
+			ShowError('Это не торговое предложение');
+		}*/
 	}
 	if(!empty($items)){
 		global $kasses;
 		$pics = $sects = [];
 		$res = CIblockElement::GetList([],['IBLOCK_ID'=>SHOP_ID,'ID'=>array_keys($pids)],false,false,['IBLOCK_ID','ID','DETAIL_PICTURE','DETAIL_PAGE_URL','IBLOCK_SECTION_ID']);
+
 		while($tob=$res->GetNextElement()){
 			$ob = $tob->GetFields();
 			$ob['PROPS'] = $tob->GetProperties();
+
+			$mxResult = \CCatalogSku::GetProductInfo($ob['ID']);
+			if (is_array($mxResult)){
+				//echo 'ID товара = '.$mxResult['ID'];
+				$ob['ID'] = $mxResult['ID'];
+			}
 			if(!empty($ob['DETAIL_PICTURE'])){
 				$pics[$ob['ID']]['PICTURE'] = CFile::ResizeImageGet($ob['DETAIL_PICTURE'], array('width'=>120, 'height'=>'120'), BX_RESIZE_IMAGE_EXACT, true)['src'];
 			}
@@ -46,6 +68,9 @@ function getToCart(){
 			}
 			$items[(int)$ob['ID']]['KASSA'] = '4';
 		}
+
+
+
 		foreach ($items as $key => $value) {
 			$items[$key]['PRICE'] = floatval($items[$key]['PRICE']);
 			$items[$key]['QUANTITY'] = floatval($items[$key]['QUANTITY']);
@@ -85,7 +110,7 @@ function getToCart(){
 
 $cart = getToCart();
 
-var_dump($kasses);
+//var_dump($kasses);
 if (!empty($kasses) && !empty($cart)) {
 	$i=0;
 	foreach ($kasses as $kassa => $kassa_q) {
@@ -138,7 +163,7 @@ if (!empty($kasses) && !empty($cart)) {
 					<b class="cartsum" style="font-size: 16px"><?=$sum?> руб.</b>
 				</div>
 				<div class="col-6 col-sm-3 col-md-2 bx-basket bx-blue">
-					<a href="/personal/order/make/?SITE_ID=<?=$kassa?>" class="btn btn-lg btn-default waves-effect ">Оформить заказ</a>
+					<a href="/order/?SITE_ID=<?=$kassa?>" class="btn btn-lg btn-default waves-effect ">Оформить заказ</a>
 				</div>
 			</div>
 		</div>
