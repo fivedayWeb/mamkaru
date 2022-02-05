@@ -104,12 +104,12 @@ $arUrlRewrite=array (
     'PATH' => '/1c_catalog/index.php',
     'SORT' => 100,
   ),
-  51 => 
+  4 => 
   array (
-    'CONDITION' => '#^/products/#',
+    'CONDITION' => '#^/discount/#',
     'RULE' => '',
-    'ID' => 'bitrix:catalog',
-    'PATH' => '/products/index.php',
+    'ID' => 'bitrix:news',
+    'PATH' => '/discount/index.php',
     'SORT' => 100,
   ),
   53 => 
@@ -120,12 +120,12 @@ $arUrlRewrite=array (
     'PATH' => '/landings/index.php',
     'SORT' => 100,
   ),
-  17 => 
+  51 => 
   array (
-    'CONDITION' => '#^/catalog2/#',
+    'CONDITION' => '#^/products/#',
     'RULE' => '',
     'ID' => 'bitrix:catalog',
-    'PATH' => '/catalog2/index.php',
+    'PATH' => '/products/index.php',
     'SORT' => 100,
   ),
   52 => 
@@ -136,12 +136,12 @@ $arUrlRewrite=array (
     'PATH' => '/services/index.php',
     'SORT' => 100,
   ),
-  4 => 
+  17 => 
   array (
-    'CONDITION' => '#^/discount/#',
+    'CONDITION' => '#^/catalog2/#',
     'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/discount/index.php',
+    'ID' => 'bitrix:catalog',
+    'PATH' => '/catalog2/index.php',
     'SORT' => 100,
   ),
   72 => 
