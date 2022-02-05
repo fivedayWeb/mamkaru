@@ -1,12 +1,12 @@
-#### Ссылка для восстановления резервной копии
+#### Ссылка для восстановления резервной копии ####
 http://mamkaru.ru/bitrix/backup/mamkaru.ru_20220119_144241_full_b5b9e650.enc.gz
 
-##Ядро 1С-Битрикс
+## Ядро 1С-Битрикс ##
 В папке bitrix нам понядобятся изменить только два файла
 1. `bitrix/modules/sale/lib/basketbase.php` 
 2. `bitrix/components/bitrix/sale.order.ajax/class.php`
 ---
-### 1. basketbase.php
+### 1. basketbase.php ###
 В первом файле мы заменяем функцию `loadItemsForFUser()` на 107 строчке
 <pre>
 public static function loadItemsForFUser($fUserId, $siteId) 
@@ -58,7 +58,7 @@ public static function loadItemsForFUser($fUserId, $siteId)
     return $basket->loadFromDb($filter);
 }
 </pre>
-###2. class.php
+###2. class.php ###
 В втором файле есть функция `obtainPaySystem()`<br><br>
 После строки:
 <pre>$paySystemList = $this->arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d' ? $this->arActivePaySystems : $this->arPaySystemServiceAll;</pre>
@@ -86,7 +86,7 @@ if($_REQUEST['SITE_ID'] == 2 || $_REQUEST['order']['KASSA'] == 2){
 
 ---
 
-##Структура сайта
+##Структура сайта ##
 Добавляется новая папка в корневом разделе `cart` или `basket` в зависимости,<br>
 что у Вас уже имеется на «борту», которая состоит из 4 файлов:
 `index.php`, `ajax.php`, `check.php` и `.section.php`
