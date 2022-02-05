@@ -1,0 +1,3 @@
+<?
+$MESS['/bitrix/modules/main/lang/ru/classes/general/user.php']["ACCOUNT_INFO_SENT"] = 'Информация для смены пароля выслана на указанный e-mail';
+$MESS['/bitrix/components/bitrix/sale.basket.basket/lang/ru/class.php']["SBB_BASKET_ITEM_WRONG_AVAILABLE_QUANTITY"] = "Извините, но указанное количество товара в данный момент недоступно.<br>Установлено предыдущее допустимое значение количества товара.";

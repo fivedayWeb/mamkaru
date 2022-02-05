@@ -1,0 +1,96 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+$this->setFrameMode(true);?>
+
+<?foreach($arResult['ITEMS'] as $arItem):?>
+    <?
+    $catalogInfo = \Bitrix\Saybert\Helpers\CatalogElement::getElementByID($arItem['ID']);
+    $totalQuantity = 0;
+    if (!empty($catalogInfo['OFFERS']))
+    {
+        foreach ($catalogInfo['OFFERS'] as $arOffer) {
+            $totalQuantity += $arOffer['CATALOG']['QUANTITY'];
+        }
+    }
+    else
+    {
+        $totalQuantity = $catalogInfo['CATALOG']['QUANTITY'];
+    }
+    ?>
+    <div class="card clear _card" data-offer="<?=$arItem['ID']?>">
+        <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-image-link clear">
+            <?if($arItem['PREVIEW_PICTURE']):?>
+                <img src="<?=CFile::ResizeImageGet($arItem['PREVIEW_PICTURE'],['width' => '268','heigth' => '268'], BX_RESIZE_IMAGE_PROPORTIONAL)['src']?>">
+            <?else:?>
+                <img src="<?=SITE_TEMPLATE_PATH?>/images/no_photo.jpg">
+            <?endif?>
+        </a>
+        <div class="card-content">
+            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-title">
+                <?=$arItem['NAME']?>
+            </a>
+            <div class="clear">
+                <div class="card-code">Артикул <?=$arItem['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
+                <div class="card-absent green">
+                    <?if ($totalQuantity > 0):?>
+                        В наличии
+                    <?else:?>
+                        <span style="color:red;">Нет в наличии</span>
+                    <?endif;?>
+                </div>
+            </div>
+            <?if ($catalogInfo['PRICES']['RESULT_PRICE']['DISCOUNT'] != 0):?>
+                <div class="card-price">
+                    <div class="old-price">
+                        <s>
+                            <?=round($catalogInfo['PRICES']['RESULT_PRICE']['BASE_PRICE'])?>
+                            <?=($catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'] == 'RUB') ? '₽': $catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'];?>
+                        </s>
+                    </div>
+                    <div class="price">
+                        <?=$catalogInfo['PRICES']['RESULT_PRICE']['DISCOUNT_PRICE']?>
+                        <?=($catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'] == 'RUB') ? '₽': $catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'];?>
+                    </div>
+                </div>
+            <?else:?>
+                <div class="card-price">
+                    <div class="price">
+                        <?=$catalogInfo['PRICES']['RESULT_PRICE']['BASE_PRICE']?>
+                        <?=($catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'] == 'RUB') ? '₽': $catalogInfo['PRICES']['RESULT_PRICE']['CURRENCY'];?>
+                    </div>
+                </div>
+            <?endif;?>
+
+            <?if (empty($catalogInfo['OFFERS']) && $totalQuantity):?>
+                 <form class="card-form clear" action="<?=$arItem['DETAIL_PAGE_URL']?>" method="GET">
+                    <div class="count-picker">
+                        <input type="hidden" name="action" value="BUY">
+                        <input type="hidden" name="id" value="<?=$arItem['ID']?>">
+
+                        <input type="hidden" name="quantity" value="1" data-max="<?=$totalQuantity?>">
+                        <button type="button" class="count-button minus _change_quantity" data-type="minus">-</button>
+                        <div class="count-counter _count_quantity_text">1</div>
+                        <button type="button" class="count-button plus _change_quantity" data-type="plus">+</button>
+                    </div>
+                    <button type="submit" class="card-add-button">В корзину</button>
+                </form>
+            <?else:?>
+                <div class="card-form clear">
+                    <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-add-button">Подробнее</a>
+                </div>
+            <?endif?>
+            <?if($arItem['PROPERTIES']['NEWPRODUCT']['VALUE']):?>
+                <div class="card-tag new">new</div>
+            <?endif;?>
+            <?if($catalogInfo['PRICES']['RESULT_PRICE']['DISCOUNT'] != 0):?>
+                <div class="card-tag action">Акция</div>
+                <div class="card-tag discount"><?=$catalogInfo['PRICES']['RESULT_PRICE']['PERCENT']?>% скидка</div>
+            <?endif;?>
+            <form class="card-form clear _deleteFromFavorite" action="<?=$templateFolder?>/ajax.php" method="POST">
+                <?=bitrix_sessid_post()?>
+                <input type="hidden" name="action" value="delete">
+                <input type="hidden" name="PRODUCT_ID" value="<?=$arItem['ID']?>">
+                <button type="submit" class="card-add-button remove">Удалить из избранного</button>
+            </form>
+        </div>
+    </div>
+<?endforeach;?>

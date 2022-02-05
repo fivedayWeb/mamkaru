@@ -1,0 +1,73 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+$this->setFrameMode(true);
+$arItem = $arResult['ITEM'];?>
+<div class="card clear no-float" data-offer="<?=$arItem['ID']?>">
+    <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-image-link clear">
+        <?
+        $cur_picture = $arItem['PREVIEW_PICTURE'];
+        if($arItem['DETAIL_PICTURE'])
+            $cur_picture = $arItem['DETAIL_PICTURE'];
+
+        $picture = $cur_picture;
+        if($cur_picture['ID'])
+            $picture = CFile::ResizeImageGet($cur_picture, array('width'=>268, 'height'=>268), BX_RESIZE_IMAGE_PROPORTIONAL_ALT );
+        $picture = array_change_key_case($picture, CASE_UPPER);?>
+        <img src="<?=$picture['SRC']?>" alt="<?=$arItem['NAME']?>" />
+    </a>
+    <div class="card-content">
+        <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-title"><?=$arItem['NAME']?></a>
+        <div class="clear">
+            <?foreach($arItem['OFFERS'] as $arOffer){
+                if($arOffer['CATALOG_QUANTITY'] > 0)
+                    $totalQuantity += $arOffer['CATALOG_QUANTITY'];
+            }
+            ?>
+
+                <div class="product-in-store">
+                    <?if($totalQuantity > 0):?>
+                        Товар на складе: <span class="green">В наличии</span>
+                    <?else:?>
+                        Товар на складе: <span style="font-weight: 500;color:red;">Под заказ</span>
+                    <?endif?>
+                </div>
+
+            <?if(!empty($arItem['PROPERTIES']['ARTNUMBER']['VALUE'])):?>
+                <div class="card-code">Артикул <?=$arItem['PROPERTIES']['ARTNUMBER']['VALUE']?></div>
+            <?endif;?>
+        </div>
+        <?if ($arItem['MIN_PRICE']['VALUE']):?>
+            <?if($arItem['MIN_PRICE']['DISCOUNT_DIFF'] != 0):?>
+                <div class="card-price">
+                    <div class="old-price">
+                        <s>
+                            <?=round($arItem['MIN_PRICE']['DISCOUNT_VALUE'])?>
+                            <?echo ($arItem['MIN_PRICE']['CURRENCY'] == 'RUB') ? '₽': $arItem['MIN_PRICE']['CURRENCY'];?>
+                        </s>
+                    </div>
+                    <div class="price">
+                        <?=$arItem['MIN_PRICE']['VALUE']?>
+                        <?echo ($arItem['MIN_PRICE']['CURRENCY'] == 'RUB') ? '₽': $arItem['MIN_PRICE']['CURRENCY'];?>
+                    </div>
+                </div>
+            <?else:?>
+                <div class="card-price">
+                    <div class="price">
+                        <?=$arItem['MIN_PRICE']['VALUE']?>
+                        <?echo ($arItem['MIN_PRICE']['CURRENCY'] == 'RUB') ? '₽': $arItem['MIN_PRICE']['CURRENCY'];?>
+                    </div>
+                </div>
+            <?endif;?>
+        <?endif?>
+
+        <form class="card-form clear">
+            <a href="<?=$arItem['DETAIL_PAGE_URL']?>" class="card-add-button">Подробнее</a>
+        </form>
+        <?if($arItem['PROPERTIES']['NEWPRODUCT']['VALUE']):?>
+            <div class="card-tag new">new</div>
+        <?endif;?>
+        <?if($arItem['MIN_PRICE']['DISCOUNT_DIFF'] != 0):?>
+            <div class="card-tag action">Акция</div>
+            <div class="card-tag discount"><?=$arItem['MIN_PRICE']['DISCOUNT_DIFF_PERCENT']?>% скидка</div>
+        <?endif;?>
+    </div>
+</div>

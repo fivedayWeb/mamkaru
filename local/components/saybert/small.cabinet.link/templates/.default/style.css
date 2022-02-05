@@ -1,0 +1,53 @@
+#header #top-header a.login-button {
+    background: #7f8aa8;
+    border: none;
+    color: #fff;
+    line-height: 30px;
+    cursor: pointer;
+    transition: all .2s ease-in;
+    font-size: 12px;
+    font-weight: 500;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 0 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+#header #top-header a.login-button:hover {
+    background: #e01d7b;
+}
+
+@media screen and (max-width: 1230px) {
+
+    #header #top-header a.login-button {
+        margin: 0 20px 0 0
+    }
+}
+
+@media screen and (max-width: 1023px) {
+
+    #header #top-header a.login-button {
+        margin: 0 20px 0 0
+    }
+}
+@media screen and (max-width: 767px) {
+    #header #top-header a.login-button {
+        line-height: 40px;
+        padding: 0 20px;
+    }
+}
+@media screen and (max-width: 480px) {
+    #header #top-header a.login-button {
+        margin: 8px 20px 0 0;
+    }
+}
+@media screen and (max-width:374px){
+ #header #top-header a.login-button {
+    margin: 8px 10px 0 0;
+    font-size: 12px;
+    line-height: 14px;
+    width: 40%;
+    padding: 13px;
+    }
+}

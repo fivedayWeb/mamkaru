@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="14" viewBox="0 0 18 14">
+  <defs>
+    <style>
+      .cls-1 {
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="burger" class="cls-1" d="M787,23h16a1,1,0,0,1,0,2H787A1,1,0,0,1,787,23Zm0,6h16a1,1,0,0,1,0,2H787A1,1,0,0,1,787,29Zm0,6h16a1,1,0,1,1,0,2H787A1,1,0,1,1,787,35Z" transform="translate(-786 -23)"/>
+</svg>
