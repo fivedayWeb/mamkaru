@@ -1,5 +1,7 @@
 #### Ссылка для восстановления резервной копии ####
-http://mamkaru.ru/bitrix/backup/mamkaru.ru_20220119_144241_full_b5b9e650.enc.gz
+`http://mamkaru.ru/bitrix/backup/mamkaru.ru_20220119_144241_full_b5b9e650.enc.gz`
+
+Узнать пароль для восстановления резервной копии можно написать email на [webmaster@fiveday.ru](mailto:webmaster@fiveday.ru)
 
 ## Ядро 1С-Битрикс ##
 В папке bitrix нам понядобятся изменить только два файла
