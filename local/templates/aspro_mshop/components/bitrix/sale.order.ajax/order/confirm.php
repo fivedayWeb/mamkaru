@@ -351,7 +351,7 @@ if ($arParams["SET_TITLE"] == "Y")
 	</style>
 	<script>
 		function ADJS_CartUpdate() {
-		  $.post('/basket/ajax.php',{"method":"update"},function(data){
+		  $.post('/cart/ajax.php',{"method":"update"},function(data){
 		    if(data.status!='ok') {
 		      alertMess('Ошибка');
 		      return false;
@@ -360,7 +360,7 @@ if ($arParams["SET_TITLE"] == "Y")
 		  });
 		}
 		function ADJS_CartAdd(id,quantity,mess) {
-		  $.post('/basket/ajax.php',{"method":"add","id":id,"quantity":quantity},function(data){
+		  $.post('/cart/ajax.php',{"method":"add","id":id,"quantity":quantity},function(data){
 		    if(data.status!='ok') {
 		      alertMess('Ошибка');
 		      return false;
@@ -389,7 +389,7 @@ if ($arParams["SET_TITLE"] == "Y")
 		  });
 		}
 		function ADJS_CartSet(id,quantity) {
-		  $.post('/basket/ajax.php',{"method":"set","id":id,"quantity":quantity},function(data){
+		  $.post('/cart/ajax.php',{"method":"set","id":id,"quantity":quantity},function(data){
 		    if(data.status!='ok') {
 		      alertMess('Ошибка');
 		      return false;
@@ -423,7 +423,7 @@ if ($arParams["SET_TITLE"] == "Y")
 		  });
 		}
 		function ADJS_CartRemove(id,quantity) {
-		  $.post('/basket/ajax.php',{"method":"remove","id":id,"quantity":quantity},function(data){
+		  $.post('/cart/ajax.php',{"method":"remove","id":id,"quantity":quantity},function(data){
 		    if(data.status!='ok') {
 		      alertMess('Ошибка');
 		      return false;
@@ -441,7 +441,7 @@ if ($arParams["SET_TITLE"] == "Y")
 		  });   
 		}
 		function ADJS_CartDelete(id) {
-		  $.post('/basket/ajax.php',{"method":"delete","id":id},function(data){
+		  $.post('/cart/ajax.php',{"method":"delete","id":id},function(data){
 		    if(data.status!='ok') {
 		      alertMess('Ошибка');
 		      return false;

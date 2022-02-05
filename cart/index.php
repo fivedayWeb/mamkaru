@@ -98,8 +98,7 @@ function getToCart(){
 }
 
 $cart = getToCart();
-
-//var_dump($kasses);
+var_dump($kasses);
 if (!empty($kasses) && !empty($cart)) {
 	$i=0;
 	foreach ($kasses as $kassa => $kassa_q) {

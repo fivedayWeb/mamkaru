@@ -117,16 +117,16 @@ abstract class BasketBase extends BasketItemCollection
 			"FUSER_ID" => $fUserId,
 			"ORDER_ID" => [null,1],
 		];
-		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['4','1','2','3'])){
+		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['1','2','3','4'])){
 			$filter["=SORT"] = $_REQUEST['SITE_ID'];
 		}
 		else {
-			$filter["=SORT"] = ['4','1','2','3'];
+			$filter["=SORT"] = ['1','2','3','4'];
 		}
-		if(!empty($_REQUEST['KASSA']) && in_array($_REQUEST['KASSA'], ['4','1','2','3'])){
+		if(!empty($_REQUEST['KASSA']) && in_array($_REQUEST['KASSA'], ['1','2','3','4'])){
 			$filter["=SORT"] = $_REQUEST['KASSA'];
 		}
-		if(!empty($_REQUEST['order']['KASSA']) && in_array($_REQUEST['order']['KASSA'], ['4','1','2','3'])){
+		if(!empty($_REQUEST['order']['KASSA']) && in_array($_REQUEST['order']['KASSA'], ['1','2','3','4'])){
 			$filter["=SORT"] = $_REQUEST['order']['KASSA'];
 		}
 		$filter["=LID"] = $siteId;
