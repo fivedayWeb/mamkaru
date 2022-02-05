@@ -7,7 +7,7 @@ Loader::includeModule("highloadblock");
 use Bitrix\Highloadblock as HL;
 use Bitrix\Main\Entity;
 use Bitrix\Sale\Discount;
-define("SHOP_ID", "119");
+define("SHOP_ID", "622");
 
 function clearToCart(){
 	CSaleBasket::DeleteAll(CSaleBasket::GetBasketUserID());
@@ -88,6 +88,10 @@ function setToCart($id,$q){
 			foreach ($item->getPropertyCollection() as $property) {
 				$itemdata['BASKET_ID'] = $property->getField('BASKET_ID');
 			}
+			$productInfoBySKUId = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
+			if (is_array($productInfoBySKUId)){
+				$itemdata['PRODUCT_ID'] = $productInfoBySKUId['ID'];
+			}
 			if($itemdata['PRODUCT_ID']==$id) {
 				if((int)$q>0){
 					$DB->query('UPDATE b_sale_basket SET QUANTITY = '.(int)$q.' WHERE ID = '.(int)$itemdata['BASKET_ID']);
@@ -118,6 +122,11 @@ function getToCart(){
 		foreach ($item->getAvailableFields() as $fieldcode){
 			$itemdata[$fieldcode] = $item->getField($fieldcode);
 		}
+		$productInfoBySKUId = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
+		if (is_array($productInfoBySKUId)){
+			//echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
+			$itemdata['PRODUCT_ID'] = $productInfoBySKUId['ID'];
+		}
 		$itemdata['discprice'] = $item->getDiscountPrice();
 		$pids[$itemdata['PRODUCT_ID']] = 1;
 		foreach ($item->getPropertyCollection() as $property) {
@@ -138,6 +147,12 @@ function getToCart(){
 		while($tob=$res->GetNextElement()){
 			$ob = $tob->GetFields();
 			$ob['PROPS'] = $tob->GetProperties();
+
+			$mxResult = \CCatalogSku::GetProductInfo($ob['ID']);
+			if (is_array($mxResult)){
+				//echo 'ID товара = '.$mxResult['ID'];
+				$ob['ID'] = $mxResult['ID'];
+			}
 
 			if(!empty($ob['DETAIL_PICTURE'])){
 				$pics[$ob['ID']]['PICTURE'] = CFile::ResizeImageGet($ob['DETAIL_PICTURE'], array('width'=>120, 'height'=>'120'), BX_RESIZE_IMAGE_EXACT, true)['src'];

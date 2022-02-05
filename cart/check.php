@@ -14,6 +14,11 @@ function getMyCart(){
 		foreach ($item->getAvailableFields() as $fieldcode){
 			$itemdata[$fieldcode] = $item->getField($fieldcode);
 		}
+		$productInfoBySKUId = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
+		if (is_array($productInfoBySKUId)){
+			//echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
+			$itemdata['PRODUCT_ID'] = $productInfoBySKUId['ID'];
+		}
 		$itemdata['discprice'] = $item->getDiscountPrice();
 		foreach ($item->getPropertyCollection() as $property) {
 			$itemdata['PROPS'][$property->getField('CODE')] = [

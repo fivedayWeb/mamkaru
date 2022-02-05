@@ -11,7 +11,6 @@ function getToCart(){
 	);
 	$basketItems = $basket->getBasketItems();
 	$items = $pids = [];
-	//print_r($basketItems);
 	foreach ($basketItems as $item)	{
 		$itemdata = [];
 		foreach ($item->getAvailableFields() as $fieldcode){
@@ -19,10 +18,8 @@ function getToCart(){
 		}
 		$productInfoBySKUId = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
 		if (is_array($productInfoBySKUId)){
-			//echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
 			$itemdata['PRODUCT_ID'] = $productInfoBySKUId['ID'];
 		}
-		//print_r($itemdata);
 		$itemdata['discprice'] = $item->getDiscountPrice();
 		$pids[$itemdata['PRODUCT_ID']] = 1;
 		foreach ($item->getPropertyCollection() as $property) {
@@ -35,14 +32,6 @@ function getToCart(){
 			];
 		}
 		$items[$itemdata['PRODUCT_ID']] = $itemdata;
-		//print_r($itemdata['PRODUCT_ID']);
-
-		/*$mxResult2 = \CCatalogSku::GetProductInfo($itemdata['PRODUCT_ID']);
-		if (is_array($mxResult2)){
-			echo ' - ID товара = '.$mxResult2['ID'] .'<br>';
-		}else{
-			ShowError('Это не торговое предложение');
-		}*/
 	}
 	if(!empty($items)){
 		global $kasses;
