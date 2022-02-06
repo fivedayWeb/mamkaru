@@ -265,7 +265,7 @@ if ($arParams["SET_TITLE"] == "Y")
 						<b class="cartsum" style="font-size: 16px"><?=$sum?> руб.</b>
 					</div>
 					<div class="col-6 col-sm-3 col-md-2 bx-basket bx-blue">
-						<a href="/personal/order/make/?SITE_ID=<?=$kassa?>" class="btn btn-lg btn-default waves-effect ">Оформить заказ</a>
+						<a href="/order/?SITE_ID=<?=$kassa?>" class="btn btn-lg btn-default waves-effect ">Оформить заказ</a>
 					</div>
 				</div>
 			</div>
@@ -528,5 +528,5 @@ if ($arParams["SET_TITLE"] == "Y")
 
 <? endif;
 
-	use Bitrix\Main\UI\Extension;
-	Extension::load('ui.bootstrap4');?>
+//	use Bitrix\Main\UI\Extension;
+\Bitrix\Main\UI\Extension::load('ui.bootstrap4');?>

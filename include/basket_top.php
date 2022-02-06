@@ -2,7 +2,7 @@
     "bitrix:sale.basket.basket.line",
     "normal",
     Array(
-        "PATH_TO_BASKET" => SITE_DIR."cart/",
+        "PATH_TO_BASKET" => SITE_DIR."basket/",
         "PATH_TO_ORDER" => SITE_DIR."order/",
         "SHOW_DELAY" => "Y",
         "SHOW_PRODUCTS"=>"Y",

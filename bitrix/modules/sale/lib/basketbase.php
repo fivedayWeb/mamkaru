@@ -115,7 +115,11 @@ abstract class BasketBase extends BasketItemCollection
 		/** @var BasketBase $collection */
 		$filter = [
 			"FUSER_ID" => $fUserId,
-			"ORDER_ID" => [null,1],
+			"ORDER_ID" => null
+		];
+/*		$filter = [
+			"FUSER_ID" => $fUserId,
+			"ORDER_ID" => null,
 		];
 		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['1','2','3','4'])){
 			$filter["=SORT"] = $_REQUEST['SITE_ID'];
@@ -131,12 +135,10 @@ abstract class BasketBase extends BasketItemCollection
 		}
 		$filter["=LID"] = $siteId;
 		return $basket->loadFromDb($filter);
+*/
 
-		/*return $basket -> loadFromDb([
-			"FUSER_ID" => $fUserId,
-			"=LID" => $siteId,
-			"ORDER_ID" => null
-		]);*/
+		$filter["=LID"] = $siteId;
+		return $basket -> loadFromDb($filter);
 		/*$filter = [
 			"FUSER_ID" => $fUserId,
 			"ORDER_ID" => [null,1],

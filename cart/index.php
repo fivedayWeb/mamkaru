@@ -98,7 +98,7 @@ function getToCart(){
 }
 
 $cart = getToCart();
-var_dump($kasses);
+var_dump($cart);
 if (!empty($kasses) && !empty($cart)) {
 	$i=0;
 	foreach ($kasses as $kassa => $kassa_q) {
@@ -175,10 +175,10 @@ else {?>
 			<a style="font-size: 18px;" href="/">Нажмите здесь</a>, чтобы продолжить покупки		</div>
 	</div>
 <?}
-use Bitrix\Main\UI\Extension;
-Extension::load('ui.bootstrap4');
+//use \Bitrix\Main\UI\Extension;
+\Bitrix\Main\UI\Extension::load('ui.bootstrap4');
 ?>
-<?$APPLICATION->IncludeComponent(
+<?/*$APPLICATION->IncludeComponent(
 	"bitrix:catalog.bigdata.products",
 	CMShop::checkVersionExt("mshop"),
 	array(
@@ -252,6 +252,6 @@ Extension::load('ui.bootstrap4');
 		"DISPLAY_COMPARE" => "Y"
 	),
 	false
-);
+);*/
 ?>
 <? require($_SERVER['DOCUMENT_ROOT'].'/bitrix/footer.php'); ?>
