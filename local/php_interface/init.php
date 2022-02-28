@@ -115,7 +115,7 @@ AddEventHandler( "iblock", "OnAfterIBlockElementUpdate", array( "aspro_import", 
 	 		}
 	 	}
 }
-
+/*
 \Bitrix\Main\EventManager::getInstance()->addEventHandler(
 	'sale',
 	'OnBasketAdd',
@@ -160,3 +160,4 @@ function multisiteorder($ID,$arFields){
 		$DB->query('UPDATE b_sale_basket SET ORDER_ID = '.$ID.' WHERE ID = '.$item['ID']);
 	}
 }
+*/

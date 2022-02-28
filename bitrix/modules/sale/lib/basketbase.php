@@ -105,12 +105,12 @@ abstract class BasketBase extends BasketItemCollection
 	 * @throws Main\NotImplementedException
 	 */
 	public static function loadItemsForFUser($fUserId, $siteId)
-	{
-		/** @var BasketBase $basket */
+	{/*
+		@var BasketBase $basket 
 		$basket = static::create($siteId);
 		$basket->setFUserId($fUserId);
 		$basket->isLoadForFUserId = true;
-		/** @var BasketBase $collection */
+		@var BasketBase $collection
 		$filter = [
 		    "FUSER_ID" => $fUserId,
 		    "ORDER_ID" => [null,1],
@@ -129,7 +129,7 @@ abstract class BasketBase extends BasketItemCollection
 		}
 		$filter["=LID"] = $siteId;
 		return $basket->loadFromDb($filter);
-
+*/
 
 		/**********old**********/
 
@@ -143,7 +143,8 @@ abstract class BasketBase extends BasketItemCollection
 		/** @var BasketBase $collection */
 		$filter = [
 			"FUSER_ID" => $fUserId,
-			"ORDER_ID" => null
+			"ORDER_ID" => null,
+
 		];
 /*		$filter = [
 			"FUSER_ID" => $fUserId,
