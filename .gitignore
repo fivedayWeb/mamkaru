@@ -8,6 +8,7 @@ home
 /log.txt
 .idea
 *.pdf
+/test/
 /bitrix/web.config
 /bitrix/themes/
 /bitrix/header.php
