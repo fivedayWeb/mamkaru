@@ -1,0 +1,162 @@
+<?if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();?>
+		</main>
+		<footer id="footer">
+			<div class="top-footer">
+				<div class="center flexbox-block">
+					<div id="company-info">
+						<div class="footer-contacts-block">
+							<div class="logo">
+				                <a href="/">
+				                    <?$APPLICATION->IncludeFile(
+				                        SITE_DIR."/local/templates/mamka/include/logo.php",
+				                        Array(),
+				                        Array("MODE"=>"html")
+				                        );
+				                    ?>
+				                </a>
+			            	</div>
+						</div>
+					</div>
+					<div id="footer-nav" class="flexbox-block">
+						<?$APPLICATION->IncludeComponent(
+							"bitrix:menu", 
+							"bottom", 
+							array(
+								"ALLOW_MULTI_SELECT" => "N",
+								"CHILD_MENU_TYPE" => "catalog",
+								"COMPONENT_TEMPLATE" => "bottom",
+								"DELAY" => "N",
+								"MAX_LEVEL" => "2",
+								"MENU_CACHE_GET_VARS" => array(
+								),
+								"MENU_CACHE_TIME" => "3600",
+								"MENU_CACHE_TYPE" => "A",
+								"MENU_CACHE_USE_GROUPS" => "Y",
+								"ROOT_MENU_TYPE" => "bottom",
+								"USE_EXT" => "Y"
+							),
+							false
+						);?>
+					</div>
+				</div>
+				<!-- <button id="show-more-foot-navs">Посмотреть еще</button> -->
+			</div>
+			<div class="middle-footer">
+				<div class="center flexbox-block">
+					<div class="footer-phone">
+						<button id="footer-call-you" data-modal="call-you-modal" class="modal-open">Заказать звонок</button>
+						<a href="#" id="footer-tel">
+							<?$APPLICATION->IncludeFile(
+			                    SITE_DIR."/local/templates/mamka/include/phone.php",
+			                    Array(),
+			                    Array("MODE"=>"html")
+			                    );
+			                ?>
+			            </a>
+					</div>
+					<div id="footer-social" class="clear">
+						<div>
+							Присоединяйся
+						</div>
+						<div class="social-icons">
+							<?$APPLICATION->IncludeFile(
+								SITE_DIR."/local/templates/mamka/include/social.php",
+								Array(),
+								Array("MODE"=>"html")
+								);
+							?>
+						</div>
+							<!-- <a href="#" class="google"></a><a href="#" class="mail"></a><a href="#" class="ok"></a><a href="#" class="vk"></a> -->
+					</div>
+					<div class="footer-subscribe-block">
+						<?$APPLICATION->IncludeComponent(
+							"saybert:add.subscribe",
+							".default",
+							Array(
+								"COMPONENT_TEMPLATE" => ".default",
+								"PRODUCT_ID" => "1"
+							)
+						);?>
+					</div>
+				</div>
+			</div>
+			<div id="bottom-footer">
+				<div class="center clear">
+					<div class="metrics">
+					</div>
+					<div class="made-in">
+						 Сайт разработан в студии <a href="#">MakeArt</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<div id="modal-backing">
+		</div>
+		<div id="call-you-modal" class="modal">
+			<form>
+				<div class="call-you-header">
+					 Заказать звонок
+				</div>
+		 		<input type="text" name="name" placeholder="Ваше Имя"> <input type="text" name="phone" placeholder="(ХХХ) ХХХ ХХ ХХ"> <input type="submit" value="Оставить заявку">
+			</form>
+			<button class="close-modal"></button>
+		</div>
+		<div id="order-you-modal" class="modal">
+		    <form>
+		        <div class="call-you-header">Заказать товар</div>
+		        <input type="text" name="name" placeholder="Ваше Имя">
+		        <input type="text" name="phone" placeholder="(ХХХ) ХХХ ХХ ХХ">
+		        <input type="submit" value="Оставить заявку">
+		    </form>
+		    <button class="close-modal"></button>
+		</div>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:main.register",
+			"modal.header",
+			Array(
+				"AUTH" => "Y",
+				"REQUIRED_FIELDS" => array("EMAIL","NAME"),
+				"SEF_FOLDER" => "/",
+				"SEF_MODE" => "N",
+				"SET_TITLE" => "N",
+				"SHOW_FIELDS" => array("EMAIL","NAME"),
+				"SUCCESS_PAGE" => "",
+				"USER_PROPERTY" => array(),
+				"USER_PROPERTY_NAME" => "",
+				"USE_BACKURL" => "Y",
+				"VARIABLE_ALIASES" => Array(),
+				'PRODUCT_ID' => 1
+			)
+		);?>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:system.auth.form",
+			"modal.header",
+			Array(
+				"FORGOT_PASSWORD_URL" => "",
+				"PROFILE_URL" => "profile.php",
+				"REGISTER_URL" => "register.php",
+				"SHOW_ERRORS" => "Y"
+			)
+		);?>
+		<div id="thx" class="modal">
+			<div id="thx-header">
+				 Спасибо, за регистрацию!
+			</div>
+			<button class="close-modal"></button>
+		</div>
+		<div class="added-wrapper">
+			<div id="added-block">
+				<div class="add-cart-block">
+		 			<img src="">
+					<div class="add-cart-block-content">
+						<div class="add-cart-block-title"></div>
+						<div class="add-cart-block-price"></div>
+					</div>
+					<div class="clearfix">
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+

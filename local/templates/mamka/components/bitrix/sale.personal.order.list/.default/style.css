@@ -1,0 +1,239 @@
+.history-order .history-order-check{
+	top:65px !important;
+	width: auto !important;
+}
+.pay-button
+{
+	padding: 5px 15px;
+    background-color: #344d76;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+.pay-item-block
+{
+	margin-top: 15px;
+}
+@media (min-width: 992px)
+{
+	.history-order .history-order-product .history-order-product-info
+	{
+		max-width: calc(100% - 600px);
+	}
+}
+
+.history-order {
+    position: relative;
+    color: #00104b;
+    margin: 0 30px;
+    border-bottom: 1px solid #d6dbe4;
+}
+
+.history-order:last-child {
+    border-bottom: none
+}
+
+.history-order .history-order-title {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 50px;
+    border-bottom: 1px solid #d6dbe4;
+    border-bottom: 1px solid #d6dbe4
+}
+
+.history-order .history-order-product {
+    padding: 15px 0;
+}
+
+.history-order .history-order-product .history-order-product-image {
+    float: left;
+    margin: 0 0 0 170px;
+    width: 120px;
+    height: 120px
+}
+
+.history-order .history-order-product .history-order-product-info {
+    float: left;
+    margin: 0 0 0 30px;
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-name {
+    display: block;
+    color: #00104b;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all .2s ease-in;
+    margin: 10px 0 5px;
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-name:hover {
+    color: #e01d7b
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-code {
+    font-size: 14px;
+    font-weight: 300
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-price {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px 0 5px
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-add-review {
+    font-size: 16px;
+    font-weight: 300;
+    color: #4758a5;
+    text-decoration: underline;
+    transition: all .2s ease-in;
+}
+
+.history-order .history-order-product .history-order-product-info .history-order-product-add-review:hover {
+    color: #e01d7b
+}
+
+.history-order .history-order-check {
+    position: absolute;
+    width: 220px;
+    right: 0;
+    top: 74px;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+}
+
+.history-order .history-order-check strong {
+    font-weight: 500
+}
+
+.history-order .history-order-check .history-order-check-status {
+    margin: 5px 0 0
+}
+
+.history-order .history-order-check .history-order-check-summ {
+    margin: 10px 0 0;
+    font-size: 20px;
+}
+
+.history-order .history-order-check .history-order-check-summ strong {
+    font-weight: 700
+}
+
+@media screen and (max-width:1230px) {
+    .history-order {
+        margin: 0 20px;
+    }
+    .history-order .history-order-title {
+        font-size: 14px
+    }
+    .history-order .history-order-product .history-order-product-image {
+        margin-left: calc((100% / 12) * 2)
+    }
+    .history-order .history-order-product .history-order-product-info {
+        margin: 0 0 0 20px;
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-name {
+        font-size: 14px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-code {
+        font-size: 11px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-price {
+        font-size: 17px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-add-review {
+        font-size: 13px
+    }
+    .history-order .history-order-check {
+        width: 200px;
+        font-size: 13px;
+    }
+    .history-order .history-order-check .history-order-check-summ {
+        font-size: 17px
+    }
+}
+
+@media screen and (max-width:1023px) {
+    .history-order .history-order-title {
+        font-size: 15px
+    }
+    .history-order .history-order-product .history-order-product-image {
+        margin: 0
+    }
+    .history-order .history-order-product .history-order-product-info {
+        width: calc(((100% / 12) * 6) - 20px);
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-name {
+        font-size: 15px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-code {
+        font-size: 13px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-price {
+        font-size: 19px
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-add-review {
+        font-size: 15px
+    }
+    .history-order .history-order-check {
+        width: 185px;
+        font-size: 15px;
+    }
+    .history-order .history-order-check .history-order-check-summ {
+        font-size: 19px
+    }
+}
+
+@media screen and (max-width:767px) {
+    .history-order {
+        margin: 0;
+        padding: 0 20px;
+    }
+    .history-order .history-order-title {
+        font-size: 16px;
+        margin: 0 -20px;
+        padding: 0 20px
+    }
+    .history-order .history-order-product .history-order-product-image {
+        display: none
+    }
+    .history-order .history-order-product .history-order-product-info {
+        margin: 0;
+        width: auto;
+        position: relative;
+        float: none;
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-name {
+        font-size: 14px;
+        width: 65%
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-code {
+        font-size: 12px;
+        width: 65%
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-price {
+        font-size: 19px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        margin: 0;
+        width: 30%
+    }
+    .history-order .history-order-product .history-order-product-info .history-order-product-add-review {
+        display: none
+    }
+    .history-order .history-order-check {
+        position: static;
+        margin: 20px 0 15px;
+    }
+    .history-order .history-order-check .history-order-check-status {
+        display: none
+    }
+    .history-order .history-order-check .history-order-check-delivery {
+        display: none
+    }
+    .history-order .history-order-check .history-order-check-summ {
+        font-size: 19px
+    }
+}

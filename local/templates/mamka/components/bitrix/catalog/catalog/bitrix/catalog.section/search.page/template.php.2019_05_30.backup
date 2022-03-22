@@ -1,0 +1,22 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
+$this->setFrameMode(true); ?>
+
+<?$strHeader = ($arResult['IPROPERTY_VALUES']['SECTION_META_TITLE']) ? $arResult['IPROPERTY_VALUES']['SECTION_META_TITLE'] : $arResult['NAME']?>
+<h1><?=$strHeader?></h1>
+<?$count = count($arResult['SEARCH']);?>
+<form class="content-search" action="/catalog/">
+    <input type="text" name="q" value="<?=htmlspecialchars($_GET['q'])?>">
+    <?if($arParams['SEARCH_COUNT'] > 0):?>
+        <div class="count-search">Найдено <?=$arParams['SEARCH_COUNT']?> <?echo \Bitrix\Saybert\Tools\Text::plural($arParams['SEARCH_COUNT'], 'товар','товара' ,'товаров' )?></div>
+    <?endif;?>
+</form>
+<div class="clear flex">
+    <?foreach ($arResult["ITEMS"] as $arItem):?>
+        <?$APPLICATION->IncludeComponent('saybert:catalog.element.card','',array(
+            'arItem' => $arItem
+        ));?>
+    <?endforeach;?>
+</div>
+
+
+<? echo $arResult["NAV_STRING"]; ?>

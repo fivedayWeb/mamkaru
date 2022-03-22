@@ -1,0 +1,67 @@
+$(document).ready(function () {
+    function e(e) {
+        (!window.event || 37 != event.keyCode && 39 != event.keyCode) && (e.value = e.value.replace(/\D/g, ""))
+    }
+
+    $("#show-more-foot-navs").click(function (e) {
+        e.preventDefault();
+        var t = $("#footer #footer-nav .footer-nav-column ul li");
+        console.log(t), $(this).toggleClass("active");
+        for (var n = 0; n < t.length; n++)n > 5 && ($("#show-more-foot-navs").hasClass("active") ? $(t[n]).css("display", "block") : $(t[n]).css("display", "none"))
+    }), $(".login-to-registration button").click(function (e) {
+        e.preventDefault(), $("#login-modal").fadeOut(300), $("#registration").fadeIn(300)
+    }), $(".registration-to-login button").click(function (e) {
+        e.preventDefault(), $("#registration").fadeOut(300), $("#login-modal").fadeIn(300)
+    }), $(".sidebar-one-levlel-button").click(function () {
+        $(this).toggleClass("active").next().slideToggle(300)
+    }), $(".sidebar-filter-button").click(function () {
+        $(this).next().slideToggle(300)
+    }), $("#sidebar-categories-open").click(function () {
+        $(this).toggleClass("active").next().slideToggle(300)
+    }), $(".modal-open").click(function () {
+        $("#" + $(this).data("modal")).fadeToggle(300), $("#modal-backing").fadeToggle(300)
+    }), $(".close-modal").click(function () {
+        $(this).parent().fadeOut(300), $("#modal-backing").fadeOut(300)
+    }), $("#modal-backing").click(function () {
+        $("#call-you-modal").fadeOut(300), $("#modal-backing").fadeOut(300)
+    }), $(".small-product-image").click(function () {
+        $("#big-product-image img").attr("src", $(this).children("img").attr("src"));
+        $("#big-product-image a").attr("href", $(this).children("img").attr("src"));
+    }), $("#menu-button").click(function () {
+        $("#main-nav").toggleClass("active"), $("#menu-button").toggleClass("active")
+    }), $(".tab-button").click(function () {
+        if (!$(this).hasClass("active")) {
+            var e = $(this).parent().children(".tab-button"), t = $(this).parent().parent().children(".tabs-contents").children(".tab-content");
+            $(e).removeClass("active"), $(t).removeClass("active"), $(this).addClass("active");
+            for (var n = 0; n < e.length; n++)$(e[n]).hasClass("active") && $(t[n]).addClass("active")
+        }
+    }), $("#search-button").click(function () {
+        $("#search-form input").toggleClass("active"), $("#main-nav li").toggleClass("removed"), $(this).toggleClass("active"), focusTimeout = setTimeout(function () {
+            $("#search-form input").focus()
+        }, 150)
+    }), $("#show-all-cities").click(function () {
+        $("#all-cities").slideToggle(300)
+    }), $("#sidebar-categories a.with-subcategory").click(function (e) {
+        e.preventDefault(), $(this).toggleClass("active").next().slideToggle(300)
+    });
+    $(".price-to input").keyup(function () {
+        e(this)
+    }), $(".price-to input").blur(function () {
+        var e = $(this).parent().parent().next().children(".my-range"), t = (e.data("values"), $(this).parent().parent().children(".price-from").children("input").val()), n = $(this).val(), i = e.data("max");
+        n > i && (n = i, $(this).val(i)), parseInt(t) > parseInt(n) && (n = t, $(this).val(n)), e.slider("values", 1, n)
+    }), $(".price-from input").keyup(function () {
+        e(this);
+        var t = $(this).parent().parent().next().children(".my-range"), n = $(this).val(), i = $(this).parent().parent().children(".price-to").children("input").val();
+        parseInt(n) > parseInt(i) && (n = i, $(this).val(n)), t.slider("values", 0, n)
+    });
+    for (var n = $(".my-range"), i = 0; i < n.length; i++)$(n[i]).slider({
+        range: !0,
+        min: $(n[i]).data("min"),
+        max: $(n[i]).data("max"),
+        step: $(n[i]).data("step"),
+        values: $(n[i]).data("values"),
+        slide: function (e, t) {
+            $(this).parent().parent().children(".clear").children(".price-from").children("input").val(t.values[0]), $(this).parent().parent().children(".clear").children(".price-to").children("input").val(t.values[1])
+        }
+    }), $(".price-from input").val($(".my-range").slider("values", 0)), $(".price-to input").val($(".my-range").slider("values", 1)), $(n[i]).parent().parent().children(".clear").children(".price-from").children("input").val($(n[i]).slider("values", 0)), $(n[i]).parent().parent().children(".clear").children(".price-to").children("input").val($(n[i]).slider("values", 1))
+});

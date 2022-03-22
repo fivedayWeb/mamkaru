@@ -1,0 +1,202 @@
+/*#home-banner {
+    background: url("/i/banner-bg.png");
+    background-size: cover;
+}*/
+
+#home-banner #home-banner-slider {
+    margin: 0;
+    width: 100%;
+}
+
+#home-banner #home-banner-slider .slide {
+    display: block;
+    position: relative;
+    color: #fff;
+    text-transform: uppercase;
+    padding-bottom: 41.7582411758%;
+}
+
+#home-banner #home-banner-slider .slide img {
+    display: block;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+#home-banner #home-banner-slider .slide .slide-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: calc(100% - 15px);
+    padding: 0 15px 0 0;
+    line-height: 75px;
+    text-align: right;
+    font-size: 47px;
+    font-family: "FuturaRoundBold", "Roboto", sans-serif;
+    background: rgba(127, 138, 168, 0.34)
+}
+
+#home-banner #home-banner-banner {
+    margin: 0 30px 0 0;
+}
+
+#home-banner #home-banner-banner img {
+    display: block
+}
+.owl-controls {
+    height: 0;
+}
+
+.owl-controls .owl-nav .owl-prev {
+    position: absolute;
+    background: url("image/slider-arrow.png") no-repeat center center;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: .5;
+    transition: all .2s ease-in;
+}
+
+.owl-controls .owl-nav .owl-prev:hover {
+    opacity: 1
+}
+
+.owl-controls .owl-nav .owl-next {
+    position: absolute;
+    background: url("image/slider-arrow.png") no-repeat center center;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+    margin: auto;
+    opacity: .5;
+    transition: all .2s ease-in;
+}
+
+.owl-controls .owl-nav .owl-next:hover {
+    opacity: 1
+}
+
+.owl-controls .owl-dots {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+    height: 14px;
+}
+
+.owl-controls .owl-dots .owl-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0 7px 0 0;
+    background: rgba(255, 255, 255, 1);
+    display: inline-block;
+}
+
+.owl-controls .owl-dots .owl-dot:hover,
+.owl-controls .owl-dots .owl-dot.active {
+    background: #e01d7b
+}
+
+@media screen and (max-width:1230px) {
+    #home-banner #home-banner-slider {
+        margin: 0 20px 0 20px;
+        width: calc(100% - 40px);
+    }
+    #home-banner #home-banner-slider .slide {
+        padding-bottom: 41.7582411758%;
+    }
+    #home-banner #home-banner-slider .slide .slide-title {
+        font-size: 39px;
+        padding: 0 15px 0 0;
+        line-height: 65px
+    }
+    #home-banner #home-banner-banner {
+        width: calc(100% / 12 * 4.5 - 23px);
+        margin: 0 20px 0 3px;
+    }
+    #home-banner #home-banner-banner a {
+        padding-bottom: 71.38227146814404%;
+        position: relative;
+        height: auto;
+        display: block
+    }
+    #home-banner #home-banner-banner img {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: auto;
+        height: auto;
+        display: block;
+        min-height: 100%;
+        min-width: 100%
+    }
+}
+
+@media screen and (max-width:1023px) {
+    #home-banner #home-banner-slider {
+        margin: 0 20px;
+        width: auto;
+    }
+    #home-banner #home-banner-slider .slide .slide-title {
+        font-size: 39px;
+        padding: 0 15px 0 0;
+        line-height: 75px
+    }
+    #home-banner #home-banner-banner {
+        display: none
+    }
+}
+
+@media screen and (max-width:767px) {
+    #home-banner #home-banner-slider {
+        margin: 0 20px;
+        width: auto;
+    }
+    #home-banner #home-banner-slider .slide .slide-title {
+        font-size: 30px;
+        padding: 0 20px 0 0;
+        line-height: 50px;
+    }
+    #home-banner #home-banner-slider {
+        margin: 0
+    }
+
+    .owl-controls .owl-dots {
+        left: 20px;
+        bottom: 18px;
+    }
+    .owl-controls .owl-dots .owl-dot {
+        width: 15px;
+        height: 15px;
+        margin: 0 10px 0 0;
+        display: inline-block;
+    }
+    .owl-controls .owl-dots .owl-dot:hover,
+    .owl-controls .owl-dots .owl-dot.active {
+        background: #e01d7b
+    }
+}
+@media screen and (max-width:480px) {
+    #home-banner #home-banner-slider .slide .slide-title {
+    font-size: 20px;
+    }
+    .owl-controls .owl-dots .owl-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px 0 0;
+    }
+    .owl-controls .owl-dots {
+    bottom: 20px;
+    }
+    .owl-controls .owl-nav .owl-next,
+    .owl-controls .owl-nav .owl-prev {
+    width: 10%;
+    }
+}

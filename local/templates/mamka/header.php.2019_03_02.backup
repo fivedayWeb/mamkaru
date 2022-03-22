@@ -1,0 +1,175 @@
+<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die(); ?>
+<?
+IncludeTemplateLangFile(__FILE__);
+?><!DOCTYPE html>
+<html lang="<?=LANGUAGE_ID?>">
+    <head>
+        <meta charset="<?=SITE_CHARSET?>">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+        
+        <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script> -->
+
+        
+        <title><? $APPLICATION->ShowTitle(); ?></title>
+        <? $APPLICATION->ShowHead(); ?>
+        <? /** css */ ?>
+        <link rel="stylesheet" type="text/css" href="/local/templates/mamka/css/font-awesome.min.css" />
+        <? use Bitrix\Main\Page\Asset; ?>
+        <? /*Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/font-awesome.min.css");*/ ?>
+        <link rel="stylesheet" type="text/css" href="/local/templates/mamka/css/fonts.css" />
+        <? /*Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/fonts.css");*/ ?>
+        <link rel="stylesheet" type="text/css" href="/local/templates/mamka/css/style.css" />
+        <? /*Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/style.css");*/ ?>
+        <? /*Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/adding_style.css");*/ ?>
+        <? /*Asset::getInstance()->addCss(SITE_TEMPLATE_PATH . "/css/fancybox2.css");*/ ?>
+        <? /*$APPLICATION->ShowCSS(true, false);*/?>
+        <? /** js */ ?>
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+
+        <? Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/jquery.js") ?>
+        <? /*Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/masonry.js")*/ ?>
+        <? Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/main.js") ?>
+        <? /*Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/additional.js")*/ ?>
+    	
+    	<? /*Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/js/fancybox.js")*/ ?>
+    	<?
+    	?>
+    </head>
+    <body>
+        <? $APPLICATION->ShowPanel(); ?>
+        <header id="header">
+            <div id="top-header">
+                <div class="center flexbox-block">
+                    <div id="top-nav">
+                        <ul>
+                            <li><a href="/oplata-i-dostavka/">Оплата и Доставка</a></li>
+                            <li><a href="/garantii/">Гарантии</a></li>
+                            <li><a href="/news/">Новости</a></li>
+                            <li><a href="/contacts/">Контакты</a></li>
+                        </ul>
+                    </div>
+                    <div class="phone-box flexbox-block">
+        	            <a href="tel:88632334050" id="header-tel">
+                        <?$APPLICATION->IncludeFile(
+                            SITE_DIR."/local/templates/mamka/include/phone.php",
+                            Array(),
+                            Array("MODE"=>"html")
+                            );
+                        ?>
+                        </a>
+        	            <button id="connect-button" data-modal="call-you-modal" class="modal-open"><span>Свяжитесь с нами</span>
+        	            </button>
+                    </div>
+                    <?$APPLICATION->IncludeComponent('saybert:small.cabinet.link','',array() )
+                    ?>
+                </div>
+            </div>
+            <div id="mid-header">
+                <div class="center flexbox-block">
+                    <div class="logo">
+                        <a href="/">
+                            <?$APPLICATION->IncludeFile(
+                                SITE_DIR."/local/templates/mamka/include/logo.php",
+                                Array(),
+                                Array("MODE"=>"html")
+                                );
+                            ?>  
+                        </a>
+                    </div>
+                    <div id="mid-nav-block" class="flexbox-block">
+                        <nav id="main-nav">
+                            <? $APPLICATION->IncludeComponent(
+                            	"bitrix:menu", 
+                            	"top_menu", 
+                            	array(
+                            		"COMPONENT_TEMPLATE" => "top_menu",
+                            		"ROOT_MENU_TYPE" => "top",
+                            		"MENU_CACHE_TYPE" => "A",
+                            		"MENU_CACHE_TIME" => "3600",
+                            		"MENU_CACHE_USE_GROUPS" => "N",
+                            		"MENU_CACHE_GET_VARS" => array(
+                            		),
+                            		"MAX_LEVEL" => "1",
+                            		"CHILD_MENU_TYPE" => "left",
+                            		"USE_EXT" => "N",
+                            		"DELAY" => "N",
+                            		"ALLOW_MULTI_SELECT" => "N"
+                            	),
+                            	false
+                            ); ?>
+                            <button id="mobile-connect-button" data-modal="call-you-modal" class="modal-open">Заказать звонок</button>
+                        </nav>
+                        <?$APPLICATION->IncludeComponent(
+                            "bitrix:search.title", 
+                            "mamka",
+                            array(
+                                "COMPONENT_TEMPLATE" => "mamka",
+                                "NUM_CATEGORIES" => "1",
+                                "TOP_COUNT" => "5",
+                                "ORDER" => "date",
+                                "USE_LANGUAGE_GUESS" => "Y",
+                                "CHECK_DATES" => "N",
+                                "SHOW_OTHERS" => "N",
+                                "PAGE" => SITE_DIR."catalog/",
+                                "SHOW_INPUT" => "Y",
+                                "INPUT_ID" => "title-search-input",
+                                "CONTAINER_ID" => "search",
+                                "PRICE_CODE" => array(
+                                    0 => "BASE",
+                                ),
+                                "PRICE_VAT_INCLUDE" => "Y",
+                                "PREVIEW_TRUNCATE_LEN" => "",
+                                "SHOW_PREVIEW" => "Y",
+                                "PREVIEW_WIDTH" => "75",
+                                "PREVIEW_HEIGHT" => "75",
+                                "CONVERT_CURRENCY" => "Y",
+                                "CURRENCY_ID" => "RUB",
+                                "CATEGORY_0_TITLE" => "Товары",
+                                "CATEGORY_0" => array(
+                                    0 => "iblock_catalog",
+                                ),
+                                "CATEGORY_0_iblock_catalog" => array(
+                                    0 => "2",
+                                )
+                            ),
+                            false
+                        );?>
+                    </div>
+                    <button id="menu-button">
+                        <span class="line1"></span>
+                        <span class="line2"></span>
+                        <span class="line3"></span>
+                    </button>
+                    <div id="cart-like-block" class="flexbox-block">
+                        <a href="/favorite/" id="like-header-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300"><defs><style>.cls-1{stroke-linecap:round;stroke-linejoin:round;stroke-width:6px;}</style></defs><title>button</title><path class="cls-1" d="M234.5 127.7c0-28-20.4-50.7-45.5-50.7-23.2 0-42.3 11.7-45 36.7-3-25-22-36.7-45.2-36.7-25 0-45.4 22.7-45.4 50.7C56 175.4 140 209 144 210.2c4-1.2 88-34.8 90.5-82.5z"/></svg>
+                            <span>Избранное</span>
+                        </a>
+                        <?$APPLICATION->IncludeComponent('saybert:small.basket','',array() )?>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <?$APPLICATION->IncludeComponent(
+        	"bitrix:menu", 
+        	"header.sections", 
+        	array(
+        		"COMPONENT_TEMPLATE" => "header.sections",
+        		"ROOT_MENU_TYPE" => "catalog",
+        		"MENU_CACHE_TYPE" => "A",
+        		"MENU_CACHE_TIME" => "3600",
+        		"MENU_CACHE_USE_GROUPS" => "N",
+        		"MENU_CACHE_GET_VARS" => array(
+        		),
+        		"MAX_LEVEL" => "1",
+        		"CHILD_MENU_TYPE" => "catalog",
+        		"USE_EXT" => "Y",
+        		"DELAY" => "N",
+        		"ALLOW_MULTI_SELECT" => "N"
+        	),
+        	false
+        );?>
+        <?$APPLICATION->IncludeComponent('bitrix:breadcrumb','' ,array())?>
+        <?/*$APPLICATION->IncludeComponent('bitrix:breadcrumb','mobile' ,array())*/?>
+        <main>

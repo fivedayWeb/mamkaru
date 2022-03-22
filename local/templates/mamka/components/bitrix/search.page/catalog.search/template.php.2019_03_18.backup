@@ -1,0 +1,8 @@
+<?if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();?>
+<?\Bitrix\Main\Loader::includeModule('Saybert');?>
+
+<?//$count = count($arResult['SEARCH']);?>
+<!--<form class="content-search">-->
+<!--    <input type="text" value="--><?//=$arResult['REQUEST']['QUERY']?><!--">-->
+<!--    <div class="count-search">Найдено  --><?//=\Bitrix\Saybert\Tools\Text::plural($count, 'товар','товара' ,'товаров' )?><!--</div>-->
+<!--</form>-->

@@ -1,0 +1,24 @@
+#pagination {
+    padding: 30px 30px 30px;
+    text-align: center;
+}
+
+#pagination a {
+    display: inline-block;
+    margin: 0 5px 0 0;
+    line-height: 25px;
+    width: 25px;
+    height: 25px;
+    background: #999fb7;
+    text-align: center;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    border-radius: 2px;
+    transition: all .2s ease-in;
+}
+
+#pagination a:hover,
+#pagination a.active {
+    background: #d5afc3
+}

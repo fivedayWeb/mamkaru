@@ -1,0 +1,18 @@
+<?php if(!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true)die();
+$this->setFrameMode(true)?>
+<ul class="dropdown-menu">
+    <?foreach($arResult as $arItem):?>
+        <?$style = "";
+        if($arItem['PARAMS']['icon']) $style='style="background-image: url(\''.$arItem['PARAMS']['icon'].'\')"';?>
+        <li <?=$style?>>
+            <a href="<?=$arItem['LINK']?>"><?=$arItem['TEXT']?></a>
+            <?/*if(!empty($arItem['ADDITIONAL_LINKS'])):?>
+                <ul>
+                    <?foreach($arItem['ADDITIONAL_LINKS'] as $arSubItem):?>
+                        <li><a href="<?=$arSubItem[1]?>"><?=$arSubItem[0]?></a></li>
+                    <?endforeach;;?>
+                </ul>
+            <?endif*/?>
+        </li>
+    <?endforeach;?>
+</ul>

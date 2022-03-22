@@ -1,0 +1,66 @@
+.catalog_viewed_products_catalog_detail .owl-controls {
+    height: 0;
+}
+.catalog_viewed_products_catalog_detail .owl-controls .owl-nav .owl-prev {
+    position: absolute;
+    background: url("image/slider-arrow.png") no-repeat center center;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    opacity: .5;
+    transition: all .2s ease-in;
+}
+.catalog_viewed_products_catalog_detail .owl-controls .owl-nav .owl-prev:hover {
+    opacity: 1
+}
+.catalog_viewed_products_catalog_detail .owl-controls .owl-nav .owl-next {
+    position: absolute;
+    background: url("image/slider-arrow.png") no-repeat center center;
+    height: 100%;
+    width: 5%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+    margin: auto;
+    opacity: .5;
+    transition: all .2s ease-in;
+}
+.catalog_viewed_products_catalog_detail .owl-controls .owl-nav .owl-next:hover {
+    opacity: 1
+}
+.catalog_viewed_products_catalog_detail .owl-controls .owl-dots {
+    display: none;
+}
+.catalog_viewed_products_catalog_detail .card
+{
+    width: 25%;
+    box-sizing: border-box;
+    margin-left: 0;
+    display: block;
+}
+.catalog_viewed_products_catalog_detail .owl-item .card
+{
+    width: 100%;
+}
+@media screen and (max-width:1023px) {
+    .catalog_viewed_products_catalog_detail .card
+    {
+        width: 50%;
+    }
+}
+@media screen and (max-width:767px) {
+    .catalog_viewed_products_catalog_detail .card
+    {
+        width: 100%;
+    }
+    .catalog_viewed_products_catalog_detail
+    {
+        padding-left: 15px;
+        padding-right: 15px;
+        box-sizing: border-box;
+    }
+}

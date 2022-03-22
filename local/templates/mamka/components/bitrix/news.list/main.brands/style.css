@@ -1,0 +1,70 @@
+.home-brand-card {
+    display: block;
+    width: 170px;
+    height: 100px;
+    margin: 0 0 0 30px;
+    float: left;
+    position: relative;
+}
+
+.home-brand-card img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+}
+.owl-carousel .owl-item .home-brand-card img {
+    width: auto;
+}
+
+.home-brands-cards .owl-controls .owl-nav .owl-prev,
+.home-brands-cards .owl-controls .owl-nav .owl-next
+{
+    position: absolute;
+    background: url("/local/templates/mamka/components/bitrix/catalog/catalog/bitrix/catalog.element/.default/images/slider-arrow.png") no-repeat center center;
+    height: 100%;
+    width: 5%;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    opacity: .5;
+    transition: all .2s ease-in;
+}
+.home-brands-cards .owl-controls .owl-nav .owl-prev {
+    left: 0;
+}
+.home-brands-cards .owl-controls .owl-nav .owl-next {
+    right: 0;
+    transform: rotate(180deg);
+}
+
+@media screen and (max-width:1230px) {
+    #home-brands .home-brands-cards {
+        padding: 0 20px
+    }
+    .home-brand-card {
+        width: calc(100% / 6);
+        height: 0;
+        padding-bottom: 6.6735112936%;
+        margin: 0 0 20px;
+    }
+    .home-brand-card img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto
+    }
+}
+
+@media screen and (max-width:767px) {
+    #home-brands {
+        display: none
+    }
+}
