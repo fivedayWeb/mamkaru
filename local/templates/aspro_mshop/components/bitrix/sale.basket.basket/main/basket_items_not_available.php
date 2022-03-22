@@ -75,7 +75,7 @@
 										if ($isImgProperty): // iblock element relation property
 										?>
 											<div class="bx_item_detail_scu_small_noadaptive <?=$full?>">
-												<label><?=$arProp["NAME"]?>:</label>
+												<label><?=$arProp["NAME"]?>:</span>
 												<div class="bx_scu_scroller_container">
 													<div class="bx_scu">
 														<ul id="prop_<?=$arProp["CODE"]?>_<?=$arItem["ID"]?>" style="width: 200%;margin-left:0%;">
