@@ -3256,19 +3256,6 @@ class SaleOrderAjax extends \CBitrixComponent
 		}
 
 		$paySystemList = $this->arParams['DELIVERY_TO_PAYSYSTEM'] === 'p2d' ? $this->arActivePaySystems : $this->arPaySystemServiceAll;
-
-		if($_REQUEST['SITE_ID'] == 2 || $_REQUEST['order']['KASSA']==2){
-        	unset($paySystemList[9]);
-        } else {
-        	unset($paySystemList[1]);
-        }
-
-        if($_REQUEST['SITE_ID']==2 || $_REQUEST['order']['KASSA']==2){
-        	$paymentId = 1;
-        } else {
-        	$paymentId = 9;
-        }
-
 		if (!empty($paySystemList))
 		{
 			$innerPaySystemId = PaySystem\Manager::getInnerPaySystemId();

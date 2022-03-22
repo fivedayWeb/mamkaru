@@ -105,88 +105,20 @@ abstract class BasketBase extends BasketItemCollection
 	 * @throws Main\NotImplementedException
 	 */
 	public static function loadItemsForFUser($fUserId, $siteId)
-	{/*
-		@var BasketBase $basket 
-		$basket = static::create($siteId);
-		$basket->setFUserId($fUserId);
-		$basket->isLoadForFUserId = true;
-		@var BasketBase $collection
-		$filter = [
-		    "FUSER_ID" => $fUserId,
-		    "ORDER_ID" => [null,1],
-		];
-		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['4','1','2','3'])){
-		    $filter["=SORT"] = $_REQUEST['SITE_ID'];
-		}
-		else {
-		    $filter["=SORT"] = ['4','1','2','3'];
-		}
-		if(!empty($_REQUEST['KASSA']) && in_array($_REQUEST['KASSA'], ['4','1','2','3'])){
-		    $filter["=SORT"] = $_REQUEST['KASSA'];
-		}
-		if(!empty($_REQUEST['order']['KASSA']) && in_array($_REQUEST['order']['KASSA'], ['4','1','2','3'])){
-		    $filter["=SORT"] = $_REQUEST['order']['KASSA'];
-		}
-		$filter["=LID"] = $siteId;
-		return $basket->loadFromDb($filter);
-*/
-
-		/**********old**********/
-
-
+	{
 		/** @var BasketBase $basket */
-		$basket = static ::create($siteId);
+		$basket = static::create($siteId);
 
-		$basket -> setFUserId($fUserId);
+		$basket->setFUserId($fUserId);
 
-		$basket -> isLoadForFUserId = true;
+		$basket->isLoadForFUserId = true;
+
 		/** @var BasketBase $collection */
-		$filter = [
+		return $basket->loadFromDb([
 			"FUSER_ID" => $fUserId,
-			"ORDER_ID" => null,
-
-		];
-/*		$filter = [
-			"FUSER_ID" => $fUserId,
-			"ORDER_ID" => null,
-		];
-		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['1','2','3','4'])){
-			$filter["=SORT"] = $_REQUEST['SITE_ID'];
-		}
-		else {
-			$filter["=SORT"] = ['1','2','3','4'];
-		}
-		if(!empty($_REQUEST['KASSA']) && in_array($_REQUEST['KASSA'], ['1','2','3','4'])){
-			$filter["=SORT"] = $_REQUEST['KASSA'];
-		}
-		if(!empty($_REQUEST['order']['KASSA']) && in_array($_REQUEST['order']['KASSA'], ['1','2','3','4'])){
-			$filter["=SORT"] = $_REQUEST['order']['KASSA'];
-		}
-		$filter["=LID"] = $siteId;
-		return $basket->loadFromDb($filter);
-*/
-
-		$filter["=LID"] = $siteId;
-		return $basket -> loadFromDb($filter);
-		/*$filter = [
-			"FUSER_ID" => $fUserId,
-			"ORDER_ID" => [null,1],
-		];
-		if(!empty($_REQUEST['SITE_ID']) && in_array($_REQUEST['SITE_ID'], ['4','1','2','3'])){
-			$filter["=SORT"] = $_REQUEST['SITE_ID'];
-		} else {
-			$filter["=SORT"] = ['4','1','2','3'];
-		}
-		if(!empty($_REQUEST['KASSA']) && in_array($_REQUEST['KASSA'], ['4','1','2','3'])){
-			$filter["=SORT"] = $_REQUEST['KASSA'];
-		}
-		if(!empty($_REQUEST['order']['KASSA']) && in_array($_REQUEST['order']['KASSA'], v)){
-			$filter["=SORT"] = $_REQUEST['order']['KASSA'];
-		}
-		$filter["=LID"] = $siteId;
-
-		return $basket->loadFromDb($filter);*/
-
+			"=LID" => $siteId,
+			"ORDER_ID" => null
+		]);
 	}
 
 	/**
@@ -198,9 +130,6 @@ abstract class BasketBase extends BasketItemCollection
 	 */
 	protected function loadFromDb(array $filter)
 	{
-
-
-
 		$select = [
 			"ID", "LID", "MODULE", "PRODUCT_ID", "QUANTITY", "WEIGHT",
 			"DELAY", "CAN_BUY", "PRICE", "CUSTOM_PRICE", "BASE_PRICE",
@@ -256,7 +185,6 @@ abstract class BasketBase extends BasketItemCollection
 		$this->loadFromArray($result);
 
 		return $this;
-
 	}
 
 	/**
